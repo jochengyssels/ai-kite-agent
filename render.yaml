@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: trip-planner
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: WEATHERBIT_API_KEY
+        value: 09b83eefa6ee49a58f535740e7e73528
+      - key: OPENAI_API_KEY
+        value: 
+      - key: USE_MOCK_DATA
+        value: true
+      - key: API_HOST
+        value: 0.0.0.0
+      - key: API_PORT
+        sync: false
